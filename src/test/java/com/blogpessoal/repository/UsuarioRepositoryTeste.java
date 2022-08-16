@@ -27,10 +27,10 @@ public class UsuarioRepositoryTeste {
     @BeforeAll
     void start() {
         usuarioRepository.deleteAll();
-        usuarioRepository.save(new Usuario(0L, "teste", "teste@teste.com", "12345678", "url"));
-        usuarioRepository.save(new Usuario(0L, "teste2", "teste@teste.com2", "12345678", "url"));
-        usuarioRepository.save(new Usuario(0L, "teste3", "teste@teste.com3", "12345678", "url"));
-        usuarioRepository.save(new Usuario(0L, "teste4", "teste@teste.com4", "12345678", "url"));
+        usuarioRepository.save(new Usuario(0L, "João da Silva","url", "teste@teste.com", "12345678"));
+        usuarioRepository.save(new Usuario(0L, "Manuela da Silva","url", "teste@teste.com2", "12345678"));
+        usuarioRepository.save(new Usuario(0L, "Adriana da Silva","url", "teste@teste.com3", "12345678"));
+        usuarioRepository.save(new Usuario(0L, "Dean Winchester","url", "teste@teste.com4", "12345678"));
     }
 
     @Test
@@ -43,7 +43,7 @@ public class UsuarioRepositoryTeste {
     @DisplayName("Retorna 3 usuarios")
     public void deveRetornarTresUsuarios() {
 
-        List<Usuario> listaDeUsuarios = usuarioRepository.findAllByNomeContainingIgnoreCase("Silva");
+        List<Usuario> listaDeUsuarios = usuarioRepository.findAllByNomeContainingIgnoreCase("silva");
 
         assertEquals(3, listaDeUsuarios.size());
 
